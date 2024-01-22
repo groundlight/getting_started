@@ -27,10 +27,10 @@ gl = Groundlight()
 
 # Question you want Groundlight to answer. Consider reading our short article on how to get the best results from Groundlight, which includes how to phrase your query: https://code.groundlight.ai/python-sdk/blog/best-practices
 query_text = "Is the door open? This includes if the door is only partially open."
-
+detector_name = "door_open_detector"
 # Create a Groundlight Detector. This is where we will send image queries for answers. You can see the performance of your detectors on our webapp: https://app.groundlight.ai
 detector = gl.get_or_create_detector(
-    name="door_open_detector",
+    name=detector_name,
     query=query_text,
 )
 
