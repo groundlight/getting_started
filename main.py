@@ -2,17 +2,17 @@
 
 # This program will use Groundlight's Python SDK to answer a simple question: "Is the door open?"
 
-# our Python SDK
 import os
 from time import sleep
 
+import yaml
 from dotenv import load_dotenv
+from framegrab import (
+    FrameGrabber,  # framegrab is our open-source Python library, which makes it easy to set up cameras for computer vision applications, like Groundlight.
+)
+from groundlight import Groundlight  # our Python SDK
 
-# framegrab is our open-source Python library, which makes it easy to set up cameras for computer vision applications, like Groundlight.
-from framegrab import FrameGrabber
-from groundlight import Groundlight
-
-# loads the contents of the .env file into the environment
+# loads the contents of the .env file into the environment, including your Groundlight API Token
 load_dotenv()
 
 # Check if GROUNDLIGHT_API_TOKEN is set in the .env file and starts with "api_", if not, raise an error.
@@ -34,13 +34,14 @@ detector = gl.get_or_create_detector(
     query=query_text,
 )
 
-# TODO: move to yaml
-# We will use a USB webcam for this example. Visit the framegrab repo for more information on using other types of cameras: https://github.com/groundlight/framegrab
-camera_config = {
-    "input_type": "generic_usb",
-}
-camera = FrameGrabber.create_grabber(camera_config)
+# We will use a USB webcam for this example, configured in the camera_config.yaml file. Visit the framegrab repo for more information on using other types of cameras: https://github.com/groundlight/framegrab
+config_path = "camera_config.yaml"
+with open(config_path, "r") as f:
+    camera_config = yaml.safe_load(f)
+print(camera_config)
 
+
+camera = FrameGrabber.create_grabber(camera_config)
 
 while True:
     image = camera.grab()
@@ -55,6 +56,3 @@ while True:
 # TODO: put in a try finally block?
 # When you are done, you can release the camera, otherwise other programs will not be able to use it.
 camera.release()
-
-# TODO: add .env file
-# TODO:
