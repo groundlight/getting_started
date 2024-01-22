@@ -43,16 +43,16 @@ print(camera_config)
 
 camera = FrameGrabber.create_grabber(camera_config)
 
-while True:
-    image = camera.grab()
+try:
+    while True:
+        image = camera.grab()
 
-    # submit the image to Groundlight. This will return a Groundlight ImageQuery object, which will contain the answer to our query.
-    image_query = gl.ask_confident(detector=detector, image=image)
-    print(f"The answer is {image_query.result}")
+        # submit the image to Groundlight. This will return a Groundlight ImageQuery object, which will contain the answer to our query.
+        image_query = gl.ask_confident(detector=detector, image=image)
+        print(f"The answer is {image_query.result}")
 
-    # how long to wait, in seconds, between queries to Groundlight
-    sleep(10)
-
-# TODO: put in a try finally block?
-# When you are done, you can release the camera, otherwise other programs will not be able to use it.
-camera.release()
+        # how long to wait, in seconds, between queries to Groundlight
+        sleep(10)
+finally:
+    # When done, release the camera, otherwise other programs will not be able to use it.
+    camera.release()
