@@ -1,10 +1,3 @@
-
-- [Getting started with Groundlight](#getting-started-with-groundlight)
-  - [Your First Groundlight Application](#your-first-groundlight-application)
-  - [Learning More - Additional Resources](#learning-more---additional-resources)
-  - [\[Optional\] Deploy on Raspberry Pi](#optional-deploy-on-raspberry-pi)
-
-
 # Getting started with Groundlight
 Welcome! This is a small "Hello World" example for Groundlight. Please clone this repo, and this Readme will walk you through how to get your first Groundlight application up and running! If you have any questions, please reach out to us by filing a GitHub issue, emailing us at support@groundlight.ai or by messaging us via the chat widget in the bottom right hand corner of the [Groundlight web app](https://app.groundlight.ai/).
 
