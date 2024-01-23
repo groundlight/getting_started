@@ -5,7 +5,6 @@
 import os
 from time import sleep
 
-import yaml
 from dotenv import load_dotenv
 from framegrab import (
     FrameGrabber,  # framegrab is our open-source Python library, which makes it easy to set up cameras for computer vision applications, like Groundlight.
@@ -34,14 +33,22 @@ detector = gl.get_or_create_detector(
     query=query_text,
 )
 
-# We will use a USB webcam for this example, configured in the camera_config.yaml file. Visit the framegrab repo for more information on using other types of cameras: https://github.com/groundlight/framegrab
-config_path = "camera_config.yaml"
-with open(config_path, "r") as f:
-    camera_config = yaml.safe_load(f)
-print(camera_config)
+# Next we have to set up the camera we will use for this application. Framegrab automatically detects all cameras connected to your computer, and this app uses the first one it finds (unless you change the camera_index variable below).
+# If you would like more sophisticated configuration of your camera, visit the framegrab repo for more information on how to automatically crop, zoom, set resolution, or add motion detection: https://github.com/groundlight/framegrab
+cameras = FrameGrabber.autodiscover()
+camera_index = 0  # NOTE: If on a Mac, framegrab might consider your iPhone as the first valid camera, so you might need to change this index to use your computer's webcam.
 
+if len(cameras) == 0:
+    raise ValueError("No cameras found. Please connect a camera and try again.")
+elif len(cameras) > 1:
+    print(f"Found {len(cameras)} cameras. Here are the configs for each camera:")
+    for camera in cameras.values():
+        print(camera.config)
+    print(
+        f'Using camera number {camera_index+1} from the list. If you would like to use a different camera, change the "camera_index" variable in main.py'
+    )
 
-camera = FrameGrabber.create_grabber(camera_config)
+camera = list(cameras.values())[camera_index]
 
 try:
     while True:
