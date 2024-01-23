@@ -1,13 +1,13 @@
 # Getting started with Groundlight
-Welcome! This is a small "Hello World" example for Groundlight. Please clone this repo, and this Readme will walk you through how to get your first Groundlight application up and running! If you have any questions, please reach out to us by filing a GitHub issue, emailing us at support@groundlight.ai or by messaging us via the chat widget in the bottom right hand corner of the [Groundlight web app](https://app.groundlight.ai/).
+Welcome! This is a small "Hello World" example for Groundlight. Please clone this repo, and this readme will walk you through how to get your first Groundlight application up and running! If you have any questions, please reach out to us by filing a GitHub issue, emailing us at support@groundlight.ai or by messaging us via the chat widget in the bottom right hand corner of the [Groundlight web app](https://app.groundlight.ai/).
 
 ## Your First Groundlight Application
-This example application uses Groundlight to answer the question: "Is the door open?". The application takes a picture from a USB webcam every 10 seconds, and sends it to Groundlight for processing. 
+This example application uses Groundlight to answer the question: "Is the door open?". The application takes a picture from a camera connected to your computer every 10 seconds, and sends it to Groundlight for processing. 
 
 1. Create a Groundlight account at [https://app.groundlight.ai/](https://app.groundlight.ai/). 
 2. Create an API token by clicking on your account name in the top right corner, and then clicking on "API Tokens". Alternatively, you can click [here](https://app.groundlight.ai/reef/my-account/api-tokens).
-3. Paste your API token into the `GROUNDLIGHT_API_TOKEN` variable in the `.env` file.
-4. Ensure your computer has a camera, either a built in webcam or a USB camera. The application will automatically detect your camera. Note: If you are on a Mac, the application might detect your iPhone as your primary webcam. See the notes in `main.py` for how to change this to your built in webcam, if desired.
+3. Paste your API token into the `GROUNDLIGHT_API_TOKEN` variable in the `.env` file (make sure you do not check this file into version control, as it contains your secret API token). 
+4. Ensure your computer has a camera, either a built in webcam or a USB camera. The application will automatically detect your camera. If you are on a Mac, the application might detect your iPhone as your primary webcam. See the notes in `main.py` for how to change this to your built in webcam, if desired.
 5. Install python dependencies by running `pip install -r requirements.txt`.
 6. Aim your camera at a door.
 7. Run `python main.py` to start the application.
