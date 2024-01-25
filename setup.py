@@ -38,7 +38,7 @@ def setup_camera() -> FrameGrabber:
         for camera in cameras.values():
             print(camera.config)
         print(
-            f'Using camera number {camera_index+1} from the list. If you would like to use a different camera, change the "camera_index" variable in main.py'
+            f'Using camera number {camera_index+1} from the list. If you would like to use a different camera, change the "camera_index" variable in setup.py'
         )
 
     camera = list(cameras.values())[camera_index]
