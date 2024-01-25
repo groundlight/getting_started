@@ -34,7 +34,7 @@ try:
         image = camera.grab()
 
         # submit the image to Groundlight. This will return a Groundlight ImageQuery object, which will contain the answer to our query.
-        # if you prefer Groundlight's most confident answer, consider using the ask_confident method instead. This method will be slower in cases where the detector's model is not confident in its answer, as we will escalate the query to a human.
+        # if you prefer Groundlight's most confident answer, consider using the ask_confident method instead. This method will be slower in cases where the detector's ML model is not confident in its answer, as we will escalate the query to a human.
         # Read more about all of the ways to query Groundlight here: https://code.groundlight.ai/python-sdk/api-reference-docs/models.html
         image_query = gl.ask_ml(detector=detector, image=image)
         print(f"The answer to the query is {image_query.result.label.value}")
