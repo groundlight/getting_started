@@ -27,6 +27,9 @@ detector = gl.get_or_create_detector(
     name=detector_name,
     query=query_text,
 )
+print(
+    f"View your detector on the Groundlight webapp: https://app.groundlight.ai/reef/detectors/{detector.id}"
+)
 
 
 try:
