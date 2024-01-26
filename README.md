@@ -4,7 +4,7 @@ Welcome! This is a small "Hello World" example for Groundlight. Please clone thi
 ## Your First Groundlight Application
 This example application uses Groundlight to answer the question: "Is the door open?". The application takes a picture from a camera connected to your computer every 10 seconds, and sends it to Groundlight for processing. 
 
-1. Create a Groundlight account at [https://app.groundlight.ai/](https://app.groundlight.ai/). 
+1. Create a free Groundlight account at [https://app.groundlight.ai/](https://app.groundlight.ai/). 
 2. Create an API token by clicking on your account name in the top right corner, and then clicking on "API Tokens". Alternatively, you can click [here](https://app.groundlight.ai/reef/my-account/api-tokens) to go to the page directly.
 3. Paste your API token into the `GROUNDLIGHT_API_TOKEN` variable in the `.env` file (make sure you do not check this file into version control, as it contains your secret API token). 
 4. Ensure your computer has a camera, either a built in webcam or a USB camera. The application will automatically detect your camera. If you are on a Mac, the application might detect your iPhone as your primary webcam. See the notes in `setup.py` for how to change this to your built in webcam, if desired.
