@@ -8,7 +8,7 @@ colorama==0.4.6
 framegrab==0.4.3
 frozendict==2.4.0
 groundlight==0.13.2
-idna==3.6
+idna==3.7
 imgcat==0.5.0
 mypy-extensions==1.0.0
 numpy==1.26.3
